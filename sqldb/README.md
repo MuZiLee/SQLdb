@@ -2,7 +2,7 @@
 
 A new Flutter application.
 
-![如图](https://github.com/MuZiLee/SQLdb/blob/master/sqldb/images/SimulatorScreen.png)
+![如图](https://github.com/MuZiLee/SQLdb/blob/master/sqldb/images/SimulatorScreen.pnghttps://github.com/MuZiLee/SQLdb/blob/master/sqldb/images/SimulatorScreen.png?raw=true)
 
 
 ## Getting Started
