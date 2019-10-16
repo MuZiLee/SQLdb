@@ -2,7 +2,7 @@
 
 A new Flutter application.
 
-![如图](https://github.com/MuZiLee/SQLdb/blob/master/sqldb/images/SimulatorScreen.png?raw=true)
+![](https://github.com/MuZiLee/SQLdb/blob/master/sqldb/images/SimulatorScreen.png?raw=true)
 
 
 ## Getting Started
@@ -71,4 +71,18 @@ final bool   more;
     //TODO:删除数据
     SQLdb.init("member_check_login").deleteList(onChanged: (count){
       print("删除数据:${count}");
+    });
+
+-------
+查询所有表
+
+    SQLdb.init("member_check_login").getTableAll(onChanged: (map){
+        print("查询所有表:${map}");
+    });
+    
+-------
+查询某表是否存在
+
+    SQLdb.init("member_check_login").queryTable(onChanged: (map){
+        print("查询所有表:${map}");
     });
