@@ -77,20 +77,62 @@ class SQLdb {
     database.close();
   }
 
+  getTableAll({ValueChanged<List<Map>> onChanged}) async{
+    Database db = await _open();
+
+    var sql = "SELECT name FROM sqlite_master WHERE type='table'";
+
+    List<Map> tables = await db.rawQuery(sql);
+
+    if (onChanged != null) {
+
+      onChanged(tables);
+    }
+  }
+
+  queryTable({ValueChanged<Map> onChanged}) async {
+
+    Database db = await _open();
+
+    var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='${table}'";
+    Map tab = (await db.rawQuery(sql)).last;
+
+    print(tab);
+
+    if (tab['name'] == table) {
+      return true;
+    }
+
+    if (onChanged != null) {
+      onChanged(tab);
+    }
+  }
+
   /*
   * 插入数据
   * */
   insert(Map<String, dynamic> json, {ValueChanged<int> onChanged}) async {
     Database db = await _open();
-    int count = await db.insert(
-      table,
-      json,
-      conflictAlgorithm: more ? ConflictAlgorithm.rollback : ConflictAlgorithm.replace,
-    );
-    await db.close();
-    if (onChanged != null) {
-      onChanged(count);
+
+    var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='${table}'";
+    List<Map> tables = await db.rawQuery(sql);
+
+    print(tables);
+
+
+    for (var o in tables) {
+      
     }
+
+//    int count = await db.insert(
+//      table,
+//      json,
+//      conflictAlgorithm: more ? ConflictAlgorithm.rollback : ConflictAlgorithm.replace,
+//    );
+//    await db.close();
+//    if (onChanged != null) {
+//      onChanged(count);
+//    }
   }
 
   /*

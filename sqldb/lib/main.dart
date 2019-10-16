@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
                       "step": 2
                     };
                     //TODO: 增加数据
-                    SQLdb.init("member_check_login", json: data).insert(data);
+                    SQLdb.init("member_check_login2", json: data).insert(data);
                     print("增加数据");
                   },
                 ),
@@ -73,7 +73,29 @@ class _MyAppState extends State<MyApp> {
                       print("删除数据:${count}");
                     });
                   },
-                )
+                ),
+
+                RaisedButton(
+                  child: Text("查询所有表"),
+                  onPressed: () {
+                    SQLdb.init("member_check_login").getTableAll(onChanged: (map){
+
+                      print(map);
+
+                    });
+                  },
+                ),
+
+                RaisedButton(
+                  child: Text("查询某表是否存在"),
+                  onPressed: () {
+                    SQLdb.init("member_check_login").queryTable(onChanged: (map){
+
+                      print(map);
+
+                    });
+                  },
+                ),
 
               ],
             ),
