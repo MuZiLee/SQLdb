@@ -1,6 +1,6 @@
 # sqlite3
 
-A new Flutter application. ![sqflite](https://github.com/tekartik/sqflite) based packaging
+A new Flutter application. [sqflite](https://github.com/tekartik/sqflite) based packaging
 
 ![](https://github.com/MuZiLee/SQLdb/blob/master/sqldb/images/SimulatorScreenShot2.png?raw=true)
 
