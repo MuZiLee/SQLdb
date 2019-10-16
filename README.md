@@ -1,4 +1,4 @@
-# sqlite3
+# SQLdb
 
 A new Flutter application. [sqflite](https://github.com/tekartik/sqflite) based packaging
 
