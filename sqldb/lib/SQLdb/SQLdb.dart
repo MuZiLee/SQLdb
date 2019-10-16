@@ -77,6 +77,9 @@ class SQLdb {
     database.close();
   }
 
+  /*
+  * 获取所有表
+  * */
   getTableAll({ValueChanged<List<Map>> onChanged}) async{
     Database db = await _open();
 
@@ -90,6 +93,9 @@ class SQLdb {
     }
   }
 
+  /*
+  * 查询某表是否存在
+  * */
   queryTable({ValueChanged<Map> onChanged}) async {
 
     Database db = await _open();
