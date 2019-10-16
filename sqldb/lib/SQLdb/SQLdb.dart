@@ -114,25 +114,15 @@ class SQLdb {
   insert(Map<String, dynamic> json, {ValueChanged<int> onChanged}) async {
     Database db = await _open();
 
-    var sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='${table}'";
-    List<Map> tables = await db.rawQuery(sql);
-
-    print(tables);
-
-
-    for (var o in tables) {
-      
+    int count = await db.insert(
+      table,
+      json,
+      conflictAlgorithm: more ? ConflictAlgorithm.rollback : ConflictAlgorithm.replace,
+    );
+    await db.close();
+    if (onChanged != null) {
+      onChanged(count);
     }
-
-//    int count = await db.insert(
-//      table,
-//      json,
-//      conflictAlgorithm: more ? ConflictAlgorithm.rollback : ConflictAlgorithm.replace,
-//    );
-//    await db.close();
-//    if (onChanged != null) {
-//      onChanged(count);
-//    }
   }
 
   /*
