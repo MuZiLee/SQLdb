@@ -3,6 +3,8 @@
 A new Flutter application.
 
 ![](https://github.com/MuZiLee/SQLdb/blob/master/sqldb/images/SimulatorScreen.png?raw=true)
+-----
+![](https://github.com/MuZiLee/SQLdb/blob/master/sqldb/images/SimulatorScreenShot2.png?raw=true)
 
 
 ## Getting Started
